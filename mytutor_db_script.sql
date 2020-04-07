@@ -91,19 +91,21 @@ CREATE TABLE location(
 );
 
 
-/*Primary Key???*/
+/*This table didnt have a primary key in the RM, so a composite PM is chosen.*/
 CREATE TABLE student_meets_in(
     SUserName VARCHAR(20) NOT NULL,
     PostalCode CHAR(6),
-    FOREIGN KEY(SUserName)REFERENCES student(SUserName)
+    PRIMARY KEY(SUserName, PostalCode),
+    FOREIGN KEY(SUserName)REFERENCES student(SUserName),
     FOREIGN KEY(PostalCode)REFERENCES location(PostalCode)
 
 );
 
-/*Primary Key???*/
-CREATE TABLE tutors_meets_in(
+/*This table didnt have a primary key in the RM, so a composite PM is chosen.*/
+CREATE TABLE tutor_meets_in(
     TUserName VARCHAR(20) NOT NULL,
     PostalCode CHAR(6),
+    PRIMARY KEY(TUserName, PostalCode),
     FOREIGN KEY(TUserName)REFERENCES tutor(TUserName),
     FOREIGN KEY(PostalCode)REFERENCES location(PostalCode)
 

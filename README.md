@@ -13,11 +13,13 @@ Communication: Slack
 # Prerequisites:
 - MySQL 8
 - Python 3
-- MySQL connector for python 
+- MySQL connector for python
     (install using [pip3 install mysql-connector-python])
+- PopSQL
 
 
 # Execute:
+Transforming RM diagram: SQL
 using: python3 pyTest.py 
 
 

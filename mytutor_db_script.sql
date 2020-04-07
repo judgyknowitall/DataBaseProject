@@ -3,7 +3,7 @@ CREATE TABLE admin (
     AName   VARCHAR(20) NOT NULL,
     APassword   VARCHAR(16) NOT NULL
 
-); 
+);
 
 CREATE TABLE student (
     SUserName   VARCHAR(20) PRIMARY KEY,
@@ -44,25 +44,26 @@ CREATE TABLE moderates(
 
 );
 
-
+/*Primary key of this table was not unique in the RM, new attribute called payment_id is added*/
 CREATE TABLE payment(
-    PaymentID VARCHAR(20) PRIMARY KEY,
+    Payment_id INT AUTO_INCREMENT,
     Amount DECIMAL(6,2) NOT NULL,
-    PaymentDate TIMESTAMP,
-    SUserName VARCHAR(20) NOT NULL,
-    TUserName VARCHAR(20) NOT NULL,
+    PaymentDate TIMESTAMP NOT NULL,
+    SUserName VARCHAR(20),
+    TUserName VARCHAR(20),
+    PRIMARY KEY(payment_id),
     FOREIGN KEY(SUserName)REFERENCES student(SUserName),
     FOREIGN KEY(TUserName)REFERENCES tutor(TUserName)
 
 );
 
-/*Primary key of this table was not unique in RM, new attribute called tutoring_id is added*/
+/*Primary key of this table was not unique in the RM, new attribute called tutoring_id is added*/
 CREATE TABLE tutors(
-    Tutoring_id INT NOT NULL AUTO INCREMENT,
-    TUserName VARCHAR(20) NOT NULL,
-    TUserName VARCHAR(20) NOT NULL,
-    StartDate TIMESTAMP,
-    EndDATE TIMESTAMP,
+    Tutoring_id INT AUTO_INCREMENT,
+    TUserName VARCHAR(20),
+    SUserName VARCHAR(20),
+    StartDate TIMESTAMP NOT NULL,
+    EndDATE TIMESTAMP NOT NULL,
     PRIMARY KEY(Tutoring_id),
     FOREIGN KEY(SUserName)REFERENCES student(SUserName),
     FOREIGN KEY(TUserName)REFERENCES tutor(TUserName)
@@ -70,8 +71,8 @@ CREATE TABLE tutors(
 );
 
 CREATE TABLE review(
-    TUserName VARCHAR(20) NOT NULL,
-    SUserName VARCHAR(20) NOT NULL,
+    TUserName VARCHAR(20),
+    SUserName VARCHAR(20),
     Rating INT NOT NULL CHECK (0<=Rating<=5),
     Comment VARCHAR(120) NOT NULL,
     Accuracy VARCHAR(3), /*Check this*/
@@ -82,12 +83,14 @@ CREATE TABLE review(
 );
 
 
+
+
 CREATE TABLE location(
     PostalCode CHAR(6) NOT NULL PRIMARY KEY,
     District VARCHAR(20),
     City VARCHAR(20) NOT NULL,
     Country VARCHAR(20) DEFAULT 'Canada'
-    
+
 );
 
 
@@ -160,3 +163,5 @@ CREATE TABLE offers(
     FOREIGN KEY(CName, CNumber) REFERENCES course(CName, CNumber)
 
 );
+
+describe offers;

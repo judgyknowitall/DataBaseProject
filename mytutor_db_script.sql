@@ -19,8 +19,9 @@ CREATE TABLE tutor(
     Tpassword   VARCHAR(16) NOT NULL,
     Background  VARCHAR(140),
     AUserName   VARCHAR(20),
-    Result  BOOLEAN NOT NULL,
-    PoliceCheck VARCHAR(3) DEFAULT 'no',
+    Result  BOOLEAN DEFAULT FALSE,
+    PoliceCheck BOOLEAN DEFAULT FALSE,
+    Rate(hr) INT NOT NULL;
     FOREIGN KEY (AUserName) REFERENCES admin(AUserName)
 
 );

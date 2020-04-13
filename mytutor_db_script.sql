@@ -21,7 +21,7 @@ CREATE TABLE tutor(
     AUserName   VARCHAR(20),
     Result  BOOLEAN DEFAULT FALSE,
     PoliceCheck BOOLEAN DEFAULT FALSE,
-    Rate(hr) INT NOT NULL;
+    Rate(hr) INT NOT NULL,
     FOREIGN KEY (AUserName) REFERENCES admin(AUserName)
 
 );

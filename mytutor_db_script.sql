@@ -17,7 +17,7 @@ CREATE TABLE tutor(
     TUserName VARCHAR(20) PRIMARY KEY,
     Tname   VARCHAR(20) NOT NULL,
     Tpassword   VARCHAR(16) NOT NULL,
-    Background  VARCHAR(140),
+    Background  VARCHAR(200),
     AUserName   VARCHAR(20),
     Result  BOOLEAN DEFAULT FALSE,
     PoliceCheck BOOLEAN DEFAULT FALSE,
@@ -49,7 +49,7 @@ CREATE TABLE moderates(
 CREATE TABLE payment(
     Payment_id INT AUTO_INCREMENT,
     Amount DECIMAL(6,2) NOT NULL,
-    PaymentDate TIMESTAMP NOT NULL,
+    PaymentDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     SUserName VARCHAR(20),
     TUserName VARCHAR(20),
     PRIMARY KEY(payment_id),

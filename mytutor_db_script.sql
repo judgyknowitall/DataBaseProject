@@ -119,7 +119,7 @@ CREATE TABLE tutor_meets_in(
 CREATE TABLE course(
     CName VARCHAR(20) NOT NULL,
     CNumber VARCHAR(20) NOT NULL,
-    Level INT,
+    Level VARCHAR(20),
     Subject VARCHAR(20),
     PRIMARY KEY(CName, CNumber)
 
@@ -156,7 +156,7 @@ CREATE TABLE school(
 
 
 CREATE TABLE offers(
-    SchoolName VARCHAR(20),
+    SchoolName VARCHAR(100),
     CName VARCHAR(20),
     CNumber VARCHAR(20),
     PRIMARY KEY(SchoolName, CName, CNumber),

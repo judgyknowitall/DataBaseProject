@@ -17,9 +17,9 @@ CREATE TABLE tutor(
     TUserName VARCHAR(20) PRIMARY KEY,
     Tname   VARCHAR(20) NOT NULL,
     Tpassword   VARCHAR(16) NOT NULL,
-    Background  VARCHAR(20),/*need more info*/
-    AUserName   VARCHAR(20) NOT NULL,
-    Result  VARCHAR(20), /*need more info*/
+    Background  VARCHAR(140),
+    AUserName   VARCHAR(20),
+    Result  BOOLEAN NOT NULL,
     PoliceCheck VARCHAR(3) DEFAULT 'no',
     FOREIGN KEY (AUserName) REFERENCES admin(AUserName)
 
@@ -75,7 +75,7 @@ CREATE TABLE review(
     SUserName VARCHAR(20),
     Rating INT NOT NULL CHECK (0<=Rating<=5),
     Comment VARCHAR(120) NOT NULL,
-    Accuracy VARCHAR(3), /*Check this*/
+    Accuracy INT DEFAULT 0,
     PRIMARY KEY (TUserName, SUserName),
     FOREIGN KEY(SUserName)REFERENCES student(SUserName),
     FOREIGN KEY(TUserName)REFERENCES tutor(TUserName)

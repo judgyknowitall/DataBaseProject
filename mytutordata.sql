@@ -57,6 +57,29 @@ VALUES(90, "Mike",  "BestTutor");
 
 
 
+INSERT INTO review values(
+"Shukla", "jack92", 4,
+"I used Shukla to get prepared for my final exam and It was a great experience.",
+NULL);
+
+INSERT INTO review values(
+"BestTutor","Mike", 4,
+"He was great!", NULL);
+
+INSERT INTO review values(
+"James2020","Mike", 5,
+"James was my tutor in the last semester, he is knowledgeable and was able to answer all of my Biology questions. Strongley recommended! ",
+NULL);
+
+
+INSERT INTO location VALUES("T1X0L3", NULL, "Calgary", "Canada");
+INSERT INTO location VALUES("T2C0P3", NULL, "Calgary", "Canada");
+INSERT INTO location VALUES("T1X0L5", NULL, "Calgary", "Canada");
+INSERT INTO location VALUES("T2C4T3", NULL, "Calgary", "Canada");
+INSERT INTO location VALUES("T1C0T2", NULL, "Calgary", "Canada");
+
+
+
 
 
 

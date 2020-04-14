@@ -1,4 +1,4 @@
-/*All tables are populated with the exception of tutors and enrolled_in.*/
+/*All the tables are populated with the exception of tutors.*/
 
 --admin
 INSERT INTO admin VALUES("Sam1", "Sam", "Admin123");
@@ -147,6 +147,16 @@ INSERT INTO course VALUES("Science", "24", "High School", "Science");
 
 INSERT INTO course VALUES("Social Studies", "30-1", "High School", "Social");
 INSERT INTO course VALUES("Social Studies", "30-2", "High School", "Social");
+
+
+--enrolled_in
+INSERT INTO enrolled_in Values("jack92", "Mathematics", "30-1");
+INSERT INTO enrolled_in Values("jack92", "English", "30-1");
+
+INSERT INTO enrolled_in Values("Mike", "Science", "20");
+
+INSERT INTO enrolled_in Values("kate2002", "English", "30-1");
+INSERT INTO enrolled_in Values("kate2002", "Mathematics", "30-1");
 
 
 --can_tutor

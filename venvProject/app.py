@@ -1,6 +1,8 @@
 from flask import Flask, jsonify, request
 import pymysql
 
+#import helperz.py
+
 app = Flask(__name__)
 
 
@@ -13,8 +15,12 @@ cursor = db.cursor()
 def dummy_api():
     cursor.execute("SELECT * FROM admin")
     myresult = cursor.fetchall()
-    for x in myresult:
-        print(x)
+    return jsonify(myresult), 200
+
+@app.route("/student")
+def get_students():
+    cursor.execute("SELECT * FROM student")
+    myresult = cursor.fetchall()
     return jsonify(myresult), 200
 
 

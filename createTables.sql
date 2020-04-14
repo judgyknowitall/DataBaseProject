@@ -1,3 +1,5 @@
+/*Create tables within schema*/
+
 CREATE TABLE admin (
     AUserName   VARCHAR(20) PRIMARY kEY,
     AName   VARCHAR(20) NOT NULL,

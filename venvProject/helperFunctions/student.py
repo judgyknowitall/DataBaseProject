@@ -1,4 +1,9 @@
-#Zahra's Helper
+#Zahra's Helper TODO
 
-def get_student():
-    return "SELECT * FROM student"
+def get_student(user):
+    sqlCommand = 
+        ''' SELECT *
+            FROM    student
+            WHERE   SUserName = '''
+    sqlCommand += user
+    return  sqlCommand

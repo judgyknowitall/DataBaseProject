@@ -1,5 +1,6 @@
 # CPSC 471: Group 11 Project
 # Python script to initialize Schema
+# TODO
 
 # Citations: 
 # https://stackoverflow.com/questions/19472922/reading-external-sql-script-in-python/19473206

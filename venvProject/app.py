@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 import pymysql
 
-from helperFunctions import student
+from helperFunctions import *
 
 app = Flask(__name__)
 
@@ -11,18 +11,17 @@ db = pymysql.connect("localhost", "root", "database.W2020", "mytutor")
 cursor = db.cursor()
 
 
+# Home
 @app.route("/")
-def dummy_api():
-    command = student.get_student()
-    cursor.execute(command)
-    myresult = cursor.fetchall()
-    return jsonify(myresult), 200
+def home():
+    return jsonify("Welcome to MyTutor DataBase!"), 200
 
-@app.route("/student")
-def get_students():
-    cursor.execute("SELECT * FROM student")
-    myresult = cursor.fetchall()
-    return jsonify(myresult), 200
+
+# Get all students
+@app.route("/student/<user>", methods=['GET'])
+def get_students(user):
+    cursor.execute(student.get_student(user))
+    return jsonify(cursor.fetchall()), 200
 
 
 if __name__ == "__main__":

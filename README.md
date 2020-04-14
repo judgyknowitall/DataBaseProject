@@ -1,7 +1,7 @@
 # DataBaseProject
 CPSC 471 Team Project
 
-Team Members:
+Group 11 Team Members:
 Kaynen M.
 Zahra G.
 Sam P.

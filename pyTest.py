@@ -10,4 +10,4 @@ db = mysql.connector.connect(
 
 mycursor = db.cursor()
 
-mycursor.execute("CREATE DATABASE testDB")
+#mycursor.execute("SELECT ")

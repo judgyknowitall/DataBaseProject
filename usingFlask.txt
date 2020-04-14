@@ -1,0 +1,6 @@
+
+
+VIDEOS:		
+https://www.youtube.com/watch?v=CweFPVewYS0
+
+https://stackoverflow.com/questions/7475223/mysql-config-not-found-when-installing-mysqldb-python-interface/33928783#33928783

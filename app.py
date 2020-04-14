@@ -1,24 +1,21 @@
-# Must install flask and flask-mysqldb
-
-from flask import Flask 
-from flask_mysqldb import MySQL
+from flask import Flask, jsonify, request
+import pymysql
 
 app = Flask(__name__)
 
-app.config['TESTING'] = False
-app.config['MYSQL_USER'] =  "sql3333301"
-app.config['MYSQL_PASSWORD'] = "lnpBdKy9qu"
-app.config['MYSQL_HOST'] = "sql3.freemysqlhosting.net"
-app.config['MYSQL_DB'] = "sql3333301"
-app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+# Open database connection (host, user, psw, db, [port=3306,...])
+db = pymysql.connect("localhost", "root", "database.W2020", "testDB")
+cursor = db.cursor()
 
-mysql = MySQL(app)
 
-@app.route("/", methods=['GET'])
-def index():
-    cur = mysql.connection.cursor()
-    cur.execute('''CREATE TABLE example (id INTEGER, name VARCHAR(20))''')
-    return "Hello From dummy API! DONE!"
+@app.route("/")
+def dummy_api():
+    cursor.execute("SELECT * FROM admin")
+    myresult = cursor.fetchall()
+    for x in myresult:
+        print(x)
+    return jsonify(myresult), 200
+
 
 if __name__ == "__main__":
     app.run()

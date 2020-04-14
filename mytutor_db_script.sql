@@ -21,8 +21,9 @@ CREATE TABLE tutor(
     AUserName   VARCHAR(20),
     Result  BOOLEAN DEFAULT FALSE,
     PoliceCheck BOOLEAN DEFAULT FALSE,
-    Rate_hr INT NOT NULL,
+    Rate_Hr INT NOT NULL,
     FOREIGN KEY (AUserName) REFERENCES admin(AUserName)
+
 );
 
 CREATE TABLE tutor_subject_expertise (
@@ -73,8 +74,8 @@ CREATE TABLE tutors(
 CREATE TABLE review(
     TUserName VARCHAR(20),
     SUserName VARCHAR(20),
-    Rating INT NOT NULL CHECK (0<=Rating<=5),
-    Comment VARCHAR(120) NOT NULL,
+    Rating INT NOT NULL CHECK (Rating<=5 AND Rating>=0),
+    Comment VARCHAR(200) NOT NULL,
     Accuracy INT DEFAULT 0,
     PRIMARY KEY (TUserName, SUserName),
     FOREIGN KEY(SUserName)REFERENCES student(SUserName),
@@ -118,7 +119,7 @@ CREATE TABLE tutor_meets_in(
 CREATE TABLE course(
     CName VARCHAR(20) NOT NULL,
     CNumber VARCHAR(20) NOT NULL,
-    Level INT,
+    Level VARCHAR(20),
     Subject VARCHAR(20),
     PRIMARY KEY(CName, CNumber)
 
@@ -155,7 +156,7 @@ CREATE TABLE school(
 
 
 CREATE TABLE offers(
-    SchoolName VARCHAR(20),
+    SchoolName VARCHAR(100),
     CName VARCHAR(20),
     CNumber VARCHAR(20),
     PRIMARY KEY(SchoolName, CName, CNumber),
@@ -163,5 +164,3 @@ CREATE TABLE offers(
     FOREIGN KEY(CName, CNumber) REFERENCES course(CName, CNumber)
 
 );
-
-describe offers;

@@ -1,3 +1,5 @@
+/*Create tables within schema*/
+
 CREATE TABLE admin (
     AUserName   VARCHAR(20) PRIMARY kEY,
     AName   VARCHAR(20) NOT NULL,
@@ -21,8 +23,10 @@ CREATE TABLE tutor(
     AUserName   VARCHAR(20),
     Result  BOOLEAN DEFAULT FALSE,
     PoliceCheck BOOLEAN DEFAULT FALSE,
-    Rate_Hr INT NOT NULL,
-    FOREIGN KEY (AUserName) REFERENCES admin(AUserName)
+    Rate INT NOT NULL,
+    CONSTRAINT TAFK
+      FOREIGN KEY (AUserName) REFERENCES admin(AUserName)
+        ON DELETE SET NULL
 
 );
 
@@ -30,7 +34,9 @@ CREATE TABLE tutor_subject_expertise (
     TUserName   VARCHAR(20),
     SubjectExpertise VARCHAR(20),
     PRIMARY KEY (TUserName, SubjectExpertise),
-    FOREIGN KEY(TUserName) REFERENCES tutor(TUserName)
+    CONSTRAINT TSETFK
+      FOREIGN KEY(TUserName) REFERENCES tutor(TUserName)
+        ON DELETE CASCADE
 
 );
 
@@ -39,9 +45,15 @@ CREATE TABLE moderates(
     SUserName   VARCHAR(20),
     TUserName VARCHAR(20),
     PRIMARY KEY(AUserName, SUserName , TUserName),
-    FOREIGN KEY(AUserName) REFERENCES admin(AUserName),
-    FOREIGN KEy (SUserName) REFERENCES student(SUserName),
-    FOREIGN KEy (TUserName) REFERENCES tutor(TUserName)
+    CONSTRAINT MAFK
+      FOREIGN KEY (AUserName) REFERENCES admin(AUserName)
+        ON DELETE CASCADE,
+    CONSTRAINT MSFK
+	  FOREIGN KEy (SUserName) REFERENCES student(SUserName)
+        ON DELETE CASCADE,
+    CONSTRAINT MTFK
+      FOREIGN KEY(TUserName) REFERENCES tutor(TUserName)
+        ON DELETE CASCADE
 
 );
 
@@ -53,8 +65,12 @@ CREATE TABLE payment(
     SUserName VARCHAR(20),
     TUserName VARCHAR(20),
     PRIMARY KEY(payment_id),
-    FOREIGN KEY(SUserName)REFERENCES student(SUserName),
-    FOREIGN KEY(TUserName)REFERENCES tutor(TUserName)
+	CONSTRAINT PSFK
+	  FOREIGN KEy (SUserName) REFERENCES student(SUserName)
+        ON DELETE SET NULL,
+    CONSTRAINT PTFK
+      FOREIGN KEY(TUserName) REFERENCES tutor(TUserName)
+        ON DELETE SET NULL
 
 );
 
@@ -66,20 +82,28 @@ CREATE TABLE tutors(
     StartDate TIMESTAMP NOT NULL,
     EndDATE TIMESTAMP NOT NULL,
     PRIMARY KEY(Tutoring_id),
-    FOREIGN KEY(SUserName)REFERENCES student(SUserName),
-    FOREIGN KEY(TUserName)REFERENCES tutor(TUserName)
+	CONSTRAINT TSFK
+	  FOREIGN KEy (SUserName) REFERENCES student(SUserName)
+        ON DELETE SET NULL,
+    CONSTRAINT TTFK
+      FOREIGN KEY(TUserName) REFERENCES tutor(TUserName)
+        ON DELETE SET NULL
 
 );
 
 CREATE TABLE review(
     TUserName VARCHAR(20),
     SUserName VARCHAR(20),
-    Rating INT NOT NULL CHECK (Rating<=5 AND Rating>=0),
-    Comment VARCHAR(200) NOT NULL,
+    Rating INT NOT NULL CHECK (0<=Rating<=5),
+    Comment VARCHAR(300) NOT NULL,
     Accuracy INT DEFAULT 0,
     PRIMARY KEY (TUserName, SUserName),
-    FOREIGN KEY(SUserName)REFERENCES student(SUserName),
-    FOREIGN KEY(TUserName)REFERENCES tutor(TUserName)
+    CONSTRAINT RSFK
+	  FOREIGN KEy (SUserName) REFERENCES student(SUserName)
+        ON DELETE CASCADE,
+    CONSTRAINT RTFK
+      FOREIGN KEY(TUserName) REFERENCES tutor(TUserName)
+        ON DELETE CASCADE
 
 );
 
@@ -100,8 +124,12 @@ CREATE TABLE student_meets_in(
     SUserName VARCHAR(20) NOT NULL,
     PostalCode CHAR(6),
     PRIMARY KEY(SUserName, PostalCode),
-    FOREIGN KEY(SUserName)REFERENCES student(SUserName),
-    FOREIGN KEY(PostalCode)REFERENCES location(PostalCode)
+    CONSTRAINT SMISFK
+	  FOREIGN KEy (SUserName) REFERENCES student(SUserName)
+        ON DELETE CASCADE,
+	CONSTRAINT SMIPCFK
+      FOREIGN KEY(PostalCode)REFERENCES location(PostalCode)
+        ON DELETE CASCADE
 
 );
 
@@ -110,8 +138,12 @@ CREATE TABLE tutor_meets_in(
     TUserName VARCHAR(20) NOT NULL,
     PostalCode CHAR(6),
     PRIMARY KEY(TUserName, PostalCode),
-    FOREIGN KEY(TUserName)REFERENCES tutor(TUserName),
-    FOREIGN KEY(PostalCode)REFERENCES location(PostalCode)
+    CONSTRAINT TMITFK
+      FOREIGN KEY(TUserName) REFERENCES tutor(TUserName)
+        ON DELETE CASCADE,
+    CONSTRAINT TMIPCFK
+      FOREIGN KEY(PostalCode)REFERENCES location(PostalCode)
+        ON DELETE CASCADE
 
 );
 
@@ -130,8 +162,12 @@ CREATE TABLE enrolled_in(
     CName VARCHAR(20)   NOT NULL,
     CNumber VARCHAR(20) NOT NULL,
     PRIMARY KEY(SUserName, CName, CNumber),
-    FOREIGN KEY(SUserName) REFERENCES student(SUserName),
-    FOREIGN KEY(CName, CNumber) REFERENCES course(CName, CNumber)
+    CONSTRAINT EISFK
+	  FOREIGN KEy (SUserName) REFERENCES student(SUserName)
+        ON DELETE CASCADE,
+	CONSTRAINT EICFK
+	  FOREIGN KEY(CName, CNumber) REFERENCES course(CName, CNumber)
+        ON DELETE CASCADE
 
 );
 
@@ -141,26 +177,38 @@ CREATE TABLE can_tutor(
     CName VARCHAR(20)   NOT NULL,
     CNumber VARCHAR(20) NOT NULL,
     PRIMARY KEY(TUserName, CName, CNumber),
-    FOREIGN KEY(TUserName) REFERENCES tutor(TUserName),
-    FOREIGN KEY(CName, CNumber) REFERENCES course(CName, CNumber)
+    CONSTRAINT CTTFK
+      FOREIGN KEY(TUserName) REFERENCES tutor(TUserName)
+        ON DELETE CASCADE,
+    CONSTRAINT CTCFK
+	  FOREIGN KEY(CName, CNumber) REFERENCES course(CName, CNumber)
+        ON DELETE CASCADE
 
 );
 
 
 CREATE TABLE school(
-    SchoolName VARCHAR(20) PRIMARY KEY,
+    SchoolName VARCHAR(45) PRIMARY KEY,
     PostalCode CHAR(6),
-    FOREIGN KEY(PostalCode)REFERENCES location(PostalCode)
+    CONSTRAINT SPCFK
+      FOREIGN KEY(PostalCode)REFERENCES location(PostalCode)
+        ON DELETE SET NULL
 
 );
 
 
 CREATE TABLE offers(
-    SchoolName VARCHAR(100),
+    SchoolName VARCHAR(45),
     CName VARCHAR(20),
     CNumber VARCHAR(20),
     PRIMARY KEY(SchoolName, CName, CNumber),
-    FOREIGN KEY(SchoolName) REFERENCES school(SchoolName),
-    FOREIGN KEY(CName, CNumber) REFERENCES course(CName, CNumber)
+    CONSTRAINT OSNFK
+      FOREIGN KEY(SchoolName) REFERENCES school(SchoolName)
+        ON DELETE CASCADE,
+    CONSTRAINT OCFK
+	  FOREIGN KEY(CName, CNumber) REFERENCES course(CName, CNumber)
+        ON DELETE CASCADE
 
 );
+
+describe offers;

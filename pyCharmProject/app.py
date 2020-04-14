@@ -3,7 +3,6 @@ import pymysql
 
 app = Flask(__name__)
 
-
 # Open database connection (host, user, psw, db, [port=3306,...])
 db = pymysql.connect("localhost", "root", "database.W2020", "testDB")
 cursor = db.cursor()
@@ -19,4 +18,4 @@ def dummy_api():
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run()

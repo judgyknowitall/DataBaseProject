@@ -1,3 +1,3 @@
--- This will start the schema/database
+/*This will start the schema/database*/
 
-CREATE SCHEMA mytutor
+CREATE SCHEMA mytutor;

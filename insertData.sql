@@ -1,4 +1,4 @@
-*All the tables are populated with the exception of tutors.*/
+/*All the tables are populated with the exception of tutors.*/
 
 -- admin
 INSERT INTO admin VALUES("Sam1", "Sam", "Admin123");

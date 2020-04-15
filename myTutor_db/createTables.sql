@@ -211,5 +211,3 @@ CREATE TABLE offers(
         ON DELETE CASCADE
 
 );
-
-describe offers;

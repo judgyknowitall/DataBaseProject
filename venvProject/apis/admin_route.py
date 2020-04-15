@@ -22,22 +22,24 @@ def getPost_admins():
         password = request.args['APassword']
         cursor.execute(post_admin(aid,name,password))
         db.commit()
-        myresult = cursor.fetchall()
-        return jsonify(myresult), 200
+        return jsonify("Success"), 200
     else: 
         cursor.execute(get_admin())
         myresult = cursor.fetchall()
         return jsonify(myresult), 200
 
-@app.route("/admin/<aid>", methods=['GET', 'PUT'])
-def get_admin(aid):
+@app.route("/admin/<aid>", methods=['GET', 'PUT', 'DELETE'])
+def getPut_admin(aid):
     if request.method == 'PUT':
         name = request.args['AName']
         password = request.args['APassword']
         cursor.execute(put_admin(aid,name,password))
         db.commit()
-        myresult = cursor.fetchall()
-        return jsonify(myresult), 200
+        return jsonify("Success"), 200
+    elif request.method == 'DELETE':
+        cursor.execute(delete_admin(aid))
+        db.commit()
+        return jsonify("Success"), 200 
     else:
         cursor.execute(get_oneAdmin(aid))
         myresult = cursor.fetchall()

@@ -35,6 +35,11 @@ def handle_exception(e):
     return jsonify(msg), 500
 '''
 
+# Import other APIs
+import student_route        # STUDENT APIs
+import admin_route          # ADMIN APIs
+import canTutor_route       # canTutor APIs
+
 #################################################################
 
 

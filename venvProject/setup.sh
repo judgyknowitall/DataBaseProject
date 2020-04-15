@@ -6,4 +6,5 @@ virtualenv venv
 source venv/bin/activate
 pip3 install flask
 pip3 install pymysql
+pip3 install simplejson
 deactivate

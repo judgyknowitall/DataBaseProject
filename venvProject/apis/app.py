@@ -36,9 +36,22 @@ def handle_exception(e):
 '''
 
 # Import other APIs
-import student_route        # STUDENT APIs
-import admin_route          # ADMIN APIs
-import canTutor_route       # canTutor APIs
+import admin_route                  # ADMIN APIs
+import student_route                # STUDENT APIs
+import tutor_route                  # TUTOR APIs
+#import tutorSubjectExpertise_route  # TUTOR_SUBJECT EXPERTISE APIs
+#import moderates_route              # MODERATES APIs
+import payment_route                # PAYMENT APIs
+#import tutors_route                 # TUTORS APIS
+import review_route                 # REVIEW APIS
+#import location_route               # LOCATION ROUTE
+#import studentMeetsIn_route
+#import tutorMeetsIn_route
+#import course_route
+#import enrolledIn_route
+import canTutor_route               # canTutor APIs
+#import school_route
+#import offers_route
 
 #################################################################
 

@@ -4,11 +4,11 @@ from flask import Flask, jsonify, request
 import pymysql
 
 from __main__ import app
-from helpers.canTutor import *
+from db_connect.db_connection import connect
 
 
-# Open database connection (host, user, psw, db, [port=3306,...])
-db = pymysql.connect("localhost", "root", "mypass", "mytutor")
+# Open database connection
+db = connect()
 cursor = db.cursor()
 
 ##### Can Tutor Routes #####

@@ -47,10 +47,10 @@ import review_route                 # REVIEW APIS
 #import location_route               # LOCATION ROUTE
 #import studentMeetsIn_route
 #import tutorMeetsIn_route
-#import course_route
+import course_route
 #import enrolledIn_route
 import canTutor_route               # canTutor APIs
-#import school_route
+import school_route
 #import offers_route
 
 #################################################################

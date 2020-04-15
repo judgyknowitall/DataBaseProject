@@ -1,22 +1,20 @@
-Requirements:
-- pip3 
-- python3
+# Requirements:
+    - pip3 
+    - python3
 
 
-Set up (in venvProject folder):
-1. pip3 install virtualenv 	(test using [virtualenv --version])
-2. virtualenv venv 
-3. source venv/bin/activate	(or [venv\Scripts\activate] in windows)
-4. pip3 install flask
-5. pip3 install pymysql
-6. python3 app.py		(or [py app.py] in windows)
-7. deactivate
+# Set up (in venvProject folder):
+    ## LINUX
+        run: $./setup.sh
+    ## WINDOWS 
+        double click setup.bat
 
 
-Regular usage:
-1. source venv/bin/activate 	(or [venv\Scripts\activate] in windows)
-2. python3 app.py		(or [py app.py] in windows)
-3. deactivate
+# Regular usage:
+     ## LINUX
+        run: $./runDBserver.sh
+    ## WINDOWS 
+        double click runDBserver.bat   
 
 
 References:

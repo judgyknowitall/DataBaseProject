@@ -39,7 +39,7 @@ def handle_exception(e):
 import admin_route                  # ADMIN APIs
 import student_route                # STUDENT APIs
 import tutor_route                  # TUTOR APIs
-#import tutorSubjectExpertise_route  # TUTOR_SUBJECT EXPERTISE APIs
+import tutorSubjectExpertise_route  # TUTOR_SUBJECT EXPERTISE APIs
 #import moderates_route              # MODERATES APIs
 import payment_route                # PAYMENT APIs
 #import tutors_route                 # TUTORS APIS

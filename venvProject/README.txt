@@ -3,16 +3,17 @@
     - python3
 
 # Set up (in venvProject folder):
-    ## LINUX
-        run: $./setup.sh
-    ## WINDOWS 
-        double click setup.bat
+    - input server connection variables
+    - LINUX	
+	run: $./setup.sh
+    - WINDOWS
+	double click setup.bat
 
 
 # Regular usage:
-     ## LINUX
+    - LINUX
         run: $./runDBserver.sh
-    ## WINDOWS 
+    - WINDOWS 
         double click runDBserver.bat   
 
 

@@ -1,5 +1,7 @@
 # CPSC 471: Group 11 Project
 # Python script to initialize Schema
+# Must run with (from project/):    
+#   python3 -m dataBaseProj.myTutor_db.initializeDB.py
 # TODO
 
 # Citations: 
@@ -9,6 +11,8 @@
 #imports
 import sys
 import mysql.connector
+
+from ..venvProject.apis.db_connect import db_connection
 
 
 #Open and execute an SQL script
@@ -36,14 +40,9 @@ def executeMySql(filename, cur):
 
 
 # Main function
-# eg: root, database.W2020
-def main(username, password):
+def main():
 
-    db = mysql.connector.connect(
-        host="localhost",
-        user=username,
-        passwd=password
-    )
+    db = db_connection.connect()
 
     mycursor = db.cursor()
     executeMySql("createSchema.sql",mycursor)       # Create Schema
@@ -66,8 +65,5 @@ def main(username, password):
     print("Database Initialization complete")
 
 
-# Execute script 
-if (len(sys.argv) != 3):
-    print("Invalid arguments! Please provide server username and password.")
-else:
-    main(sys.argv[1], sys.argv[2])
+# Run main
+main()

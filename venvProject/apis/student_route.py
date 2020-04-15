@@ -5,10 +5,11 @@ import pymysql
 
 from __main__ import app
 from helpers.student import *
+from db_connect.db_connection import connect
 
 
-# Open database connection (host, user, psw, db, [port=3306,...])
-db = pymysql.connect("localhost", "root", "database.W2020", "mytutor")
+# Open database connection
+db = connect()
 cursor = db.cursor()
 
 

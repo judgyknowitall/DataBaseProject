@@ -1,3 +1,3 @@
 call venv\Scripts\activate
-py app.py
+py apis\app.py
 PAUSE

@@ -27,6 +27,7 @@ def students_new():
     db.commit()
     return jsonify("Success!"), 200
 
+
 # select or edit a specific student
 @app.route("/student/<sid>", methods=['GET', 'PUT', 'DELETE'])
 def students_getAndEdit(sid):

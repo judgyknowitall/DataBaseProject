@@ -31,6 +31,7 @@ def handle_exception(e):
 # Import other APIs
 import student_route        # STUDENT APIs
 import admin_route          # ADMIN APIs
+import tutor_route          # TUTOR APIs
 
 #################################################################
 

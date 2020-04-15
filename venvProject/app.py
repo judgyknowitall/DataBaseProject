@@ -1,13 +1,13 @@
 from flask import Flask, jsonify, request
 import pymysql
 
-from helperFunctions import student
+from helperFunctions import student, admin
 
 app = Flask(__name__)
 
 
 # Open database connection (host, user, psw, db, [port=3306,...])
-db = pymysql.connect("localhost", "root", "database.W2020", "mytutor")
+db = pymysql.connect("localhost", "root", "mypass", "mytutor")
 cursor = db.cursor()
 
 # HOME ###################################################################
@@ -82,6 +82,36 @@ def students_getAndEdit(sid):
         return jsonify("Success!"), 200
 
 #################################################################
+
+##### Admin Routes #####
+@app.route("/admin", methods=['GET','POST'])
+def getPost_admins():
+    if request.method == 'POST':
+        aid = request.args['AUserName']
+        name = request.args['AName']
+        password = request.args['APassword']
+        cursor.execute(admin.post_admin(aid,name,password))
+        db.commit()
+        myresult = cursor.fetchall()
+        return jsonify(myresult), 200
+    else: 
+        cursor.execute(admin.get_admin())
+        myresult = cursor.fetchall()
+        return jsonify(myresult), 200
+
+@app.route("/admin/<aid>", methods=['GET', 'PUT'])
+def get_admin(aid):
+    if request.method == 'PUT':
+        name = request.args['AName']
+        password = request.args['APassword']
+        cursor.execute(admin.put_admin(aid,name,password))
+        db.commit()
+        myresult = cursor.fetchall()
+        return jsonify(myresult), 200
+    else:
+        cursor.execute(admin.get_oneAdmin(aid))
+        myresult = cursor.fetchall()
+        return jsonify(myresult), 200    
 
 
 if __name__ == "__main__":

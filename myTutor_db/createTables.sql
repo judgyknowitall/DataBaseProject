@@ -94,7 +94,8 @@ CREATE TABLE tutors(
 CREATE TABLE review(
     TUserName VARCHAR(20),
     SUserName VARCHAR(20),
-    Rating INT NOT NULL CHECK (0<=Rating<=5),
+    Rating INT NOT NULL,
+    CONSTRAINT Rating_Ck CHECK (Rating BETWEEN 1 AND 5),
     Comment VARCHAR(300) NOT NULL,
     Accuracy INT DEFAULT 0,
     PRIMARY KEY (TUserName, SUserName),

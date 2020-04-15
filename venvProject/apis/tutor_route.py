@@ -22,12 +22,10 @@ def tutors_getAndNew():
         if len(request.args) != 0:
             exp = request.args['SubjectExpertise']
             cursor.execute(getExpert_tutor(exp))
-            db.commit()
         
         # Used to get the list of all tutors
         else:
             cursor.execute(getAll_tutor())
-            db.commit()
         
         return jsonify(cursor.fetchall()), 200
 
@@ -53,7 +51,6 @@ def tutors_getAndEdit(tid):
     # Get all details of a specific tutor  
     if request.method == 'GET':
         cursor.execute(get_tutor(tid))
-        db.commit()
         return jsonify(cursor.fetchall()), 200
     
     # PUT methods

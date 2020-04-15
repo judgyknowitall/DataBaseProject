@@ -3,10 +3,17 @@
 from flask import Flask, jsonify, request
 import pymysql
 
-#from helperFunctions import student
 
 app = Flask(__name__)
 
+
+# Import other APIs
+import student_route        # STUDENT APIs
+import admin_route          # ADMIN APIs
+import tutor_route          # TUTOR APIs
+import review_route         # REVIEW APIs
+
+#################################################################
 
 # Home
 @app.route("/")
@@ -27,11 +34,6 @@ def handle_exception(e):
     # Return message
     return jsonify(msg), 500
 '''
-
-# Import other APIs
-import student_route        # STUDENT APIs
-import admin_route          # ADMIN APIs
-import tutor_route          # TUTOR APIs
 
 #################################################################
 

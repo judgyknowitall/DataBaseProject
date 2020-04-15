@@ -14,7 +14,7 @@ def new_student(sid, name, psw):
 # Used to update an existing student
 def edit_student(sid, name, psw):
     sqlCommand = 'UPDATE student SET SName = %s, SPassword = %s ' % (name, psw)
-    sqlCommand += ' WHERE SUserName = %s;' % (sid)
+    sqlCommand += 'WHERE SUserName = %s;' % (sid)
     return sqlCommand
 
 # Delete an existing Mytutor student account 

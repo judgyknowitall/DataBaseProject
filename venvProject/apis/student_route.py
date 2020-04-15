@@ -35,7 +35,6 @@ def students_getAndEdit(sid):
     # Find a student by username
     if request.method == 'GET':
         cursor.execute(get_student(sid))
-        db.commit()
         return jsonify(cursor.fetchall()), 200
     
     # Used to update an existing student

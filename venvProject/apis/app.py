@@ -44,7 +44,7 @@ import moderates_route              # MODERATES APIs
 import payment_route                # PAYMENT APIs
 import tutors_route                 # TUTORS APIs
 import review_route                 # REVIEW APIs
-#import location_route               # LOCATION APIs
+import location_route               # LOCATION APIs
 #import studentMeetsIn_route         # STUDENTMEETSIN APIs
 #import tutorMeetsIn_route           # TUTORMEETSIN APIs
 import course_route                 # COURSE APIs

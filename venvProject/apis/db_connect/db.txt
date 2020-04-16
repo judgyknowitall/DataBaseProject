@@ -1,4 +1,4 @@
 localhost
 root
-mypass
+database.W2020
 mytutor

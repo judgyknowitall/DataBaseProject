@@ -6,13 +6,6 @@ import pymysql
 
 app = Flask(__name__)
 
-
-# Import other APIs
-import student_route        # STUDENT APIs
-import admin_route          # ADMIN APIs
-import tutor_route          # TUTOR APIs
-import review_route         # REVIEW APIs
-
 #################################################################
 
 # Home
@@ -45,10 +38,10 @@ import payment_route                # PAYMENT APIs
 import tutors_route                 # TUTORS APIs
 import review_route                 # REVIEW APIs
 import location_route               # LOCATION APIs
-#import studentMeetsIn_route         # STUDENTMEETSIN APIs
+import studentMeetsIn_route         # STUDENTMEETSIN APIs
 import tutorMeetsIn_route           # TUTORMEETSIN APIs
 import course_route                 # COURSE APIs
-import enrolledIn_route             # ENROLLEDIN APIs
+#import enrolledIn_route             # ENROLLEDIN APIs
 import canTutor_route               # CANTUTOR APIs
 import school_route                 # SCHOOL APIs
 import offers_route                 # OFFERS APIs

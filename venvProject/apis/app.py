@@ -46,7 +46,7 @@ import tutors_route                 # TUTORS APIs
 import review_route                 # REVIEW APIs
 import location_route               # LOCATION APIs
 #import studentMeetsIn_route         # STUDENTMEETSIN APIs
-#import tutorMeetsIn_route           # TUTORMEETSIN APIs
+import tutorMeetsIn_route           # TUTORMEETSIN APIs
 import course_route                 # COURSE APIs
 #import enrolledIn_route             # ENROLLEDIN APIs
 import canTutor_route               # CANTUTOR APIs

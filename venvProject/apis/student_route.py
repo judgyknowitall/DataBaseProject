@@ -15,7 +15,7 @@ cursor = db.cursor()
 
 # Create a new Mytutor student account
 @app.route("/student", methods=['POST'])
-def students_new():
+def student_new():
 
     # Retrieve parameters
     sid = request.args['SUserName']
@@ -31,7 +31,7 @@ def students_new():
 
 # select or edit a specific student
 @app.route("/student/<sid>", methods=['GET', 'PUT', 'DELETE'])
-def students_getAndEdit(sid):
+def student_getAndEdit(sid):
 
     # Find a student by username
     if request.method == 'GET':

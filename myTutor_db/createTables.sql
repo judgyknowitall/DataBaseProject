@@ -79,8 +79,8 @@ CREATE TABLE tutors(
     Tutoring_id INT AUTO_INCREMENT,
     TUserName VARCHAR(20),
     SUserName VARCHAR(20),
-    StartDate TIMESTAMP NOT NULL,
-    EndDATE TIMESTAMP NOT NULL,
+    StartDate DATE NOT NULL,
+    EndDate DATE,
     PRIMARY KEY(Tutoring_id),
 	CONSTRAINT TSFK
 	  FOREIGN KEy (SUserName) REFERENCES student(SUserName)
@@ -88,7 +88,6 @@ CREATE TABLE tutors(
     CONSTRAINT TTFK
       FOREIGN KEY(TUserName) REFERENCES tutor(TUserName)
         ON DELETE SET NULL
-
 );
 
 CREATE TABLE review(

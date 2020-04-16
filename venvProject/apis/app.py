@@ -42,16 +42,16 @@ import tutor_route                  # TUTOR APIs
 import tutorSubjectExpertise_route  # TUTOR_SUBJECT EXPERTISE APIs
 import moderates_route              # MODERATES APIs
 import payment_route                # PAYMENT APIs
-#import tutors_route                 # TUTORS APIS
-import review_route                 # REVIEW APIS
-#import location_route               # LOCATION ROUTE
-#import studentMeetsIn_route
-#import tutorMeetsIn_route
-import course_route
-#import enrolledIn_route
-import canTutor_route               # canTutor APIs
-import school_route
-#import offers_route
+import tutors_route                 # TUTORS APIs
+import review_route                 # REVIEW APIs
+#import location_route               # LOCATION APIs
+#import studentMeetsIn_route         # STUDENTMEETSIN APIs
+#import tutorMeetsIn_route           # TUTORMEETSIN APIs
+import course_route                 # COURSE APIs
+#import enrolledIn_route             # ENROLLEDIN APIs
+import canTutor_route               # CANTUTOR APIs
+import school_route                 # SCHOOL APIs
+#import offers_route                 # OFFERS APIs
 
 #################################################################
 

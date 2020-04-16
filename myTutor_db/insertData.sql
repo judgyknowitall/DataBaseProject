@@ -67,6 +67,14 @@ INSERT INTO payment(Amount, SUserName, TUserName)
 VALUES(90, "Mike",  "BestTutor");
 
 
+-- tutors
+INSERT INTO tutors values(1, "Shukla", "jack92", "2020-01-01", NULL);
+INSERT INTO tutors(TUserName, SUserName, StartDate, EndDate)
+values("BestTutor", "Mike", "2020-01-10", "2020-04-15");
+INSERT INTO tutors(TUserName, SUserName, StartDate, EndDate)
+values("James2020", "Kate2002", "2018-12-31", "2019-01-01");
+
+
 -- review
 INSERT INTO review values(
 "Shukla", "jack92", 4,

@@ -15,7 +15,7 @@ cursor = db.cursor()
 
 # Get tutors or create a new tutor
 @app.route("/tutor", methods=['GET', 'POST'])
-def tutors_getAndNew():
+def tutor_getAndNew():
 
     # GET methods
     if request.method == 'GET':
@@ -48,7 +48,7 @@ def tutors_getAndNew():
 
 # select or edit a specific tutor
 @app.route("/tutor/<tid>", methods=['GET', 'PUT', 'DELETE'])
-def tutors_getAndEdit(tid):
+def tutor_getAndEdit(tid):
 
     # Get all details of a specific tutor  
     if request.method == 'GET':

@@ -12,17 +12,6 @@ db = connect()
 cursor = db.cursor()
 
 ##### Course Routes #####
-
-## Get all courses
-## Get a courses based on name and number
-## Get all courses based on subject
-## Get all courses based on a number
-## Get all courses based on a level
-## Get all courses based on a number and a level
-# Put to update a courses useless info
-# Post a new course, does not have to be offered by a school, must check things like level is high schoiol
-# Delete a course 
-
 @app.route("/course", methods=['GET', 'PUT', 'POST', 'DELETE'])
 def getPutPostDelete_course():
     if request.method == 'PUT':

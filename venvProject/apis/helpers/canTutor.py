@@ -21,8 +21,6 @@ def post_canTutor(tid,cname,cnum):
 # Can either delete by a tutor id only, deleting all rows with them, or one specific row with all fields specified
 def delete_canTutor(tid,cname,cnum):
     if cname == "" and cnum == "":
-        print(cname)
-        print(cnum)
         return "DELETE FROM can_tutor WHERE TUserName=%s;" % (tid,)
     if  tid != "" and cname != "" and cnum != "":
         return "DELETE FROM can_tutor WHERE TUserName=%s AND CName=%s AND CNumber=%s;" % (tid,cname,cnum,)

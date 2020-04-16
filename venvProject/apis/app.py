@@ -48,10 +48,10 @@ import location_route               # LOCATION APIs
 #import studentMeetsIn_route         # STUDENTMEETSIN APIs
 import tutorMeetsIn_route           # TUTORMEETSIN APIs
 import course_route                 # COURSE APIs
-#import enrolledIn_route             # ENROLLEDIN APIs
+import enrolledIn_route             # ENROLLEDIN APIs
 import canTutor_route               # CANTUTOR APIs
 import school_route                 # SCHOOL APIs
-#import offers_route                 # OFFERS APIs
+import offers_route                 # OFFERS APIs
 
 #################################################################
 

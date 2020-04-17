@@ -35,3 +35,12 @@ def subjexpert_getSubj(tid):
 def subjexpert_getTut(subj):
     cursor.execute(get_tutorsPerSubjExp(subj))
     return jsonify(cursor.fetchall()), 200
+
+# Delete one tutor and their subject expertise with both the tutor id and their expertise specified
+@app.route("/tutor/tutorSubjectExpertise", methods=['DELETE'])
+def subjexpert_deleteTutSubExp():
+    tid = request.args.get('TUserName')
+    subj = request.args.get('SubjectExpertise')
+    cursor.execute(delete_subjExp(tid,subj))
+    db.commit()
+    return jsonify("Success"), 200

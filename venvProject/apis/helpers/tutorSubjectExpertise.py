@@ -18,3 +18,10 @@ def get_tutorsPerSubjExp(subj):
     sqlCommand = 'SELECT TUserName FROM tutor_subject_expertise WHERE '
     sqlCommand+= 'SubjectExpertise = %s;' % (subj)
     return sqlCommand
+
+# Can either delete by a tutor id only, deleting all rows with them, or one specific row with all fields specified
+def delete_subjExp(tid,subj):
+    if subj == "":
+        return "DELETE FROM tutor_subject_expertise WHERE TUserName=%s;" % (tid,)
+    else:
+        return "DELETE FROM tutor_subject_expertise WHERE TUserName=%s AND SubjectExpertise=%s;" % (tid,subj,)
